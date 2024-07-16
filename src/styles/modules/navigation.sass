@@ -1,0 +1,49 @@
+@use '../variables' as *
+
+.navigation
+	@media ($br-point-mobile)
+		padding: 20px
+		background-color: $main-color--light
+		border-radius: $border-radius
+
+	&__list
+		display: flex
+		flex-wrap: wrap
+		list-style: none
+		margin: 0
+		padding: 0
+		gap: 10px
+		@media ($br-point-mobile)
+			display: flex
+			flex-direction: column
+			list-style: none
+			margin: 0
+			padding: 0
+			gap: 20px
+
+	&__item
+		cursor: pointer
+		color: #fff
+		border-radius: $border-radius
+		@media ($br-point-mobile)
+			text-align: center
+
+		a
+			display: inline-block
+			padding: 10px
+			text-decoration: none
+			color: inherit
+			border-radius: $border-radius
+			transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out
+			@media ($br-point-mobile)
+				width: 100%
+
+			&:hover
+				background-color: $main-color
+				box-shadow: $shadow-template
+
+	&__item--active
+		background-color: $main-color
+		box-shadow: $shadow-template--inset
+	&__item a:hover
+		box-shadow: $shadow-template

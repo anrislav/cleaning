@@ -1,0 +1,35 @@
+@use '../variables' as *
+
+*
+	box-sizing: border-box
+
+img
+	display: block
+	object-fit: cover
+
+body
+	font-family: 'Open Sans', sans-serif
+	font-size: 16px
+	margin: 0
+	padding: 0
+	color: #333
+
+.container
+	padding: 0 40px
+	margin: 0 auto 30px
+	max-width: 1600px
+	@media ($br-point-desktop)
+		padding: 0 20px
+	@media ($br-point-mobile)
+		padding: 0 10px
+
+.section-title
+	font-weight: normal
+	font-size: 2.5em
+	margin: 0
+	margin-bottom: 20px
+	text-decoration-line: underline
+	text-decoration-style: dashed
+	text-decoration-color: $accent-color
+	@media ($br-point-mobile)
+		font-size: 2em

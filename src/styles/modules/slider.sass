@@ -1,0 +1,41 @@
+@use '../variables' as *
+.slider
+	display: grid
+	grid-template-areas: 'prev slides next'
+	grid-template-columns: auto 1fr auto
+	gap: 10px
+	align-items: center
+	@media ($br-point-mobile)
+		grid-template-areas: 'slides slides' 'prev next'
+		grid-template-columns: repeat(2, 1fr)
+
+.slider__wrapper
+	grid-area: slides
+	overflow: hidden
+
+.slides
+	display: flex
+	transition: transform 0.5s ease-in-out
+	list-style-type: none
+	align-items: center
+	margin: 0
+	padding: 0
+
+.slide
+	flex-shrink: 0
+	width: 100%
+
+.control
+	grid-area: prev
+	width: 40px
+	padding: 0
+	background-color: transparent
+	border-radius: $border-radius
+	border: none
+	cursor: pointer
+	@media ($br-point-mobile)
+		justify-self: center
+
+.next
+	grid-area: next
+	transform: rotate(180deg)

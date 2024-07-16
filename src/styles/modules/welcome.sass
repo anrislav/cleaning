@@ -1,0 +1,17 @@
+@use '../variables' as *
+
+.welcome
+	display: flex
+	grid-template-columns: 1fr auto
+	gap: 20px
+	@media ($br-point-tablet)
+		flex-direction: column-reverse
+
+.welcome__main
+	flex-grow: 1
+	padding: 20px
+	border-radius: $border-radius
+
+.welcome__desc
+	margin: 0
+	line-height: 1.5em

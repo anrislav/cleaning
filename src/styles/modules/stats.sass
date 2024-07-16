@@ -1,0 +1,67 @@
+@use '../variables' as *
+
+.stats__list
+	display: grid
+	grid-template-columns: repeat(2, 1fr)
+	gap: 25px
+	margin: 0
+	padding: 0
+	list-style: none
+	@media ($br-point-tablet)
+		grid-template-columns: 1fr
+		gap: 15px
+
+.stat
+	padding: 20px
+	display: grid
+	grid-template-columns: 6fr 1fr
+	grid-template-rows: auto auto 1fr
+	grid-template-areas: 'number icon' 'title icon' 'desc icon'
+	gap: 5px 20px
+	align-items: center
+	border-radius: $border-radius
+	background-color: $accent-color--light
+	box-shadow: $shadow-template
+	@media ($br-point-tablet)
+		position: relative
+		grid-template-columns: 1fr
+		grid-template-areas: 'number' 'title' 'desc'
+		background-color: #fff
+		overflow: hidden
+
+	&__icon
+		grid-area: icon
+		@media ($br-point-tablet)
+			position: absolute
+			bottom: -25px
+			right: -50px
+			width: 150px
+			opacity: 0.3
+			z-index: 1
+
+	&__title
+		grid-area: title
+		font-weight: 300
+		font-size: 1.8em
+		margin: 0
+		padding: 0
+		@media ($br-point-tablet)
+			z-index: 2
+
+	&__number
+		grid-area: number
+		font-size: 3em
+		line-height: 0.8em
+		font-weight: 300
+		align-self: end
+
+	&__desc
+		grid-area: desc
+		margin: 0
+		align-self: stretch
+		@media ($br-point-tablet)
+			z-index: 2
+
+		&::before
+			content: '≈'
+			margin-right: 5px

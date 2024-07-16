@@ -1,0 +1,49 @@
+@use '../variables' as *
+
+.footer
+	display: grid
+	grid-template-columns: auto 1fr auto
+	margin-bottom: 0
+	padding: 40px
+	gap: 20px
+	background-color: $accent-color
+	border-radius: $border-radius $border-radius 0 0
+	box-shadow: $shadow-template
+	@media ($br-point-desktop)
+		padding: 10px
+	@media ($br-point-tablet)
+		grid-template-columns: 1fr
+		padding: 10px
+		justify-items: stretch
+
+	&__info
+		display: flex
+		flex-direction: column
+		gap: 10px
+		padding: 20px
+		background-color: $accent-color--light
+		border-radius: $border-radius
+
+		>
+			h2
+				font-size: 2em
+				text-decoration: none
+				margin-bottom: 0
+
+			p
+				margin: 0
+
+		a
+			text-decoration: none
+
+	&__services
+		display: flex
+		flex-direction: column-reverse
+		gap: 20px
+		width: 200px
+		padding: 20px
+		border-radius: $border-radius
+		background-color: $accent-color--light
+
+	&__service img
+		width: 100%

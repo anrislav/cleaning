@@ -1,0 +1,62 @@
+@use '../variables' as *
+
+.work__slider
+	--step: 2
+	--visible: 2
+	@media ($br-point-tablet)
+		--step: 1
+		--visible: 1
+
+.example
+	overflow: hidden
+	position: relative
+	margin: 0 5px
+	border-radius: $border-radius
+	@media ($br-point-tablet)
+		display: flex
+		align-items: start
+		flex-direction: column
+
+	&__image
+		width: 100%
+		max-height: 500px
+		border-radius: 5px
+
+	&__title
+		position: absolute
+		top: 10px
+		left: 10px
+		padding: 5px 10px
+		background-color: $accent-color--dark
+		opacity: 1
+		border-radius: 5px
+		color: #fff
+		transition: opacity 0.3s ease-in-out
+		@media ($br-point-tablet)
+			position: static
+			margin: 5px 0
+			order: -1
+
+	&__state
+		position: absolute
+		top: 10px
+		left: 10px
+		padding: 5px 10px
+		background-color: $accent-color--dark
+		opacity: 1
+		border-radius: 5px
+		color: #fff
+		transition: opacity 0.3s ease-in-out
+		@media ($br-point-tablet)
+			position: static
+			margin: 5px 0
+
+	&__state
+		top: auto
+		bottom: 10px
+
+	&:hover
+		.example__title, .example__state
+			opacity: 0
+			@media ($br-point-tablet)
+				opacity: 1

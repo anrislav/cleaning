@@ -1,0 +1,71 @@
+@use '../variables' as *
+
+.reviews
+	&__gratitude-slider
+		--step: 2
+		--visible: 6
+		@media ($br-point-desktop)
+			--visible: 4
+		@media ($br-point-tablet)
+			--visible: 2
+		@media ($br-point-mobile)
+			--step: 1
+			--visible: 1
+
+	&__slider
+		--step: 2
+		--visible: 2
+		@media ($br-point-tablet)
+			--step: 1
+			--visible: 1
+
+.gratitude
+	overflow: hidden
+	margin: 15px
+	border-radius: $border-radius
+	box-shadow: $shadow-template
+
+	&__image
+		width: 100%
+		max-height: 500px
+
+.review
+	display: grid
+	grid-template-columns: auto 1fr
+	grid-template-rows: auto 1fr
+	grid-template-areas: 'image name' 'image text'
+	align-items: center
+	gap: 10px 20px
+	margin: 15px
+	padding: 10px
+	border-radius: $border-radius
+	background-color: $accent-color--light
+	box-shadow: $shadow-template
+	@media ($br-point-mobile)
+		grid-template-columns: 1fr
+		grid-template-areas: 'image' 'name' 'text'
+		justify-items: center
+		margin: 10px
+
+	&__image
+		width: 140px
+		grid-area: image
+		border-radius: $border-radius
+		@media ($br-point-desktop)
+			width: 100px
+		@media ($br-point-mobile)
+			width: 120px
+			grid-area: image
+
+	&__name
+		font-size: 2em
+		font-weight: normal
+		margin: 0
+		@media ($br-point-desktop)
+			font-size: 1.5em
+		@media ($br-point-mobile)
+			font-size: 2em
+
+	&__text
+		font-size: 1em
+		margin: 0

@@ -1,0 +1,45 @@
+@use '../variables' as *
+
+.advantages__list
+	display: grid
+	grid-template-columns: repeat(2, 1fr)
+	gap: 25px
+	margin: 0
+	padding: 0
+	list-style: none
+	@media ($br-point-tablet)
+		grid-template-columns: 1fr
+
+.advantage
+	padding: 10px
+	display: grid
+	grid-template-columns: 4fr 1fr
+	grid-template-rows: auto 1fr
+	grid-template-areas: 'title icon' 'desc icon'
+	gap: 10px 20px
+	@media ($br-point-tablet)
+		gap: 10px
+	@media ($br-point-mobile)
+		grid-template-columns: 1fr
+		grid-template-areas: 'icon' 'title' 'desc'
+
+	&__title
+		grid-area: title
+		font-weight: normal
+		font-size: 1.8em
+		margin: 0
+		@media ($br-point-tablet)
+			font-size: 1.5em
+	&__desc
+		margin: 0
+		grid-area: desc
+	&__icon
+		grid-area: icon
+		width: 100%
+		color: $accent-color
+		@media ($br-point-tablet)
+			width: 100px
+			justify-self: center
+
+	&:nth-child(2n) > .advantage__icon
+		color: $main-color--light

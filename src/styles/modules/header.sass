@@ -1,0 +1,33 @@
+@use '../variables' as *
+
+.header
+	display: flex
+	justify-content: space-between
+	gap: 20px
+	padding: 0 20px
+	align-items: center
+	background-color: $main-color--light
+	color: #fff
+	border-radius: 0 0 $border-radius $border-radius
+	box-shadow: $shadow-template
+	@media ($br-point-tablet)
+		padding: 0
+
+	&__logo
+		width: 300px
+		max-width: 80%
+
+	&__navigation
+		flex-shrink: 0
+		@media ($br-point-tablet)
+			display: none
+
+	&__nav-button
+		display: none
+		background-color: transparent
+		width: 80px
+		padding: 10px
+		color: #fff
+		border: 0
+		@media ($br-point-tablet)
+			display: block

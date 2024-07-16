@@ -1,0 +1,111 @@
+@use '../variables' as *
+
+@keyframes tag
+	0%
+		background-position: 0% 0%
+
+	100%
+		background-position: 100% 100%
+
+.services__list
+	display: grid
+	grid-template-columns: repeat(3, 1fr)
+	gap: 10px
+	list-style: none
+	margin: 0
+	padding: 0
+	@media ($br-point-desktop)
+		grid-template-columns: repeat(2, 1fr)
+	@media ($br-point-tablet)
+		grid-template-columns: 1fr
+
+.service
+	display: flex
+	flex-direction: column-reverse
+	justify-content: space-between
+	align-items: flex-start
+	gap: 25px
+	background: $accent-color
+	padding: 15px
+	min-height: 250px
+	border-radius: $border-radius
+	position: relative
+	overflow: hidden
+	box-shadow: $shadow-template
+	@media ($br-point-mobile)
+		flex-direction: column
+
+	&::before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		background-size: cover
+		background-position: center
+		width: 100%
+		height: 100%
+		transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out
+
+	&--carpet::before
+		background-image: url(img/clean-carpet.jpg)
+
+	&--couch::before
+		background-image: url(img/clean-couch.jpg)
+
+	&--window::before
+		background-image: url(img/clean-window.jpg)
+
+	&--flat::before
+		background-image: url(img/clean-flat.jpg)
+
+	&--office::before
+		background-image: url(img/clean-office.jpg)
+
+	&--blanket::before
+		background-image: url(img/clean-blanket.jpg)
+
+	&--floor::before
+		background-image: url(img/clean-floor.jpg)
+
+	&--front::before
+		background-image: url(img/clean-front.jpg)
+
+	&:hover::before
+		transform: scale(1.2)
+		opacity: 0.9
+
+	&__title
+		padding: 10px 15px
+		margin: 0
+		border-radius: 5px
+		background-color: #fff
+		font-weight: normal
+		font-size: 1.4em
+		z-index: 1
+		box-shadow: $shadow-template
+
+	&__tags
+		align-self: flex-end
+		display: flex
+		flex-wrap: wrap
+		justify-content: end
+		gap: 10px
+		list-style: none
+		margin: 0
+		padding: 0
+		z-index: 1
+
+	&__tag
+		padding: 4px 10px
+		border-radius: 5px
+		display: flex
+		align-items: center
+		gap: 5px
+		color: #fff
+		background-color: $accent-color
+		box-shadow: $shadow-template
+
+		&--animated
+			background: linear-gradient(135deg, $accent-color, $main-color, $accent-color)
+			background-size: 1000% 1000%
+			animation: tag 4s ease-in-out infinite alternate

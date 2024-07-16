@@ -1,0 +1,115 @@
+@use '../variables' as *
+
+.contacts
+	flex-shrink: 0
+	width: 290px
+	padding: 20px
+	border-radius: $border-radius
+	display: grid
+	grid-template-areas: 'phone' 'list' 'buttons'
+	justify-content: center
+	align-items: stretch
+	flex-direction: column
+	gap: 20px
+	background-color: $accent-color--light
+	box-shadow: $shadow-template
+	@media ($br-point-tablet)
+		width: 100%
+		justify-content: space-between
+		grid-template-areas: 'phone buttons' 'list list'
+	@media ($br-point-mobile)
+		justify-content: center
+		grid-template-areas: 'phone' 'list' 'buttons'
+
+	&__phone
+		grid-area: phone
+		display: flex
+		align-items: center
+		gap: 5px
+		font-weight: normal
+		font-size: 1.8em
+		color: $main-color
+		text-decoration: none
+		@media ($br-point-tablet)
+			font-size: 1.5em
+		@media ($br-point-mobile)
+			font-size: 2em
+
+	&__buttons
+		grid-area: buttons
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+		gap: 10px
+		list-style-type: none
+		margin: 0
+		padding: 0
+		@media ($br-point-mobile)
+			align-self: center
+
+	&__button
+		width: 50px
+		height: 50px
+		background-color: #fff
+		border-radius: 5px
+		border: 1px solid $accent-color
+		color: $accent-color
+		transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out
+
+		> a
+			display: block
+			padding: 3px
+			color: inherit
+			text-decoration: none
+
+		&:hover
+			background-color: $accent-color
+			color: $accent-color--light
+
+	&__list
+		grid-area: list
+		display: flex
+		flex-direction: column
+		list-style-type: none
+		margin: 0
+		padding: 0
+		gap: 10px
+		@media ($br-point-tablet)
+			width: 100%
+			justify-self: center
+			justify-content: space-evenly
+			flex-direction: row
+			gap: 20px
+		@media ($br-point-mobile)
+			flex-direction: column
+
+	&__item
+		display: grid
+		grid-template-areas: 'title icon' 'desc icon' 'phone icon'
+		grid-template-columns: 1fr auto
+		justify-content: space-between
+		gap: 5px
+		align-items: center
+
+	&__item-title
+		grid-area: title
+		margin: 0
+
+	&__item-phone
+		grid-area: phone
+		color: $main-color
+		text-decoration: none
+
+	&__item-desc
+		grid-area: desc
+		margin: 0
+
+	&__item
+		&::after
+			grid-area: icon
+			content: url(img/icons/point.svg)
+			width: 35px
+
+		&:nth-child(1):after
+			content: url(img/icons/office.svg)
+			width: 35px
